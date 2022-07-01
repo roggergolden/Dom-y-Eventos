@@ -110,14 +110,9 @@ formulario.addEventListener('submit', function(evento) {
         return; 
     }
 
-    //Crear la otra alerta
+    //Crear la alerta de enviar correctamente
 
-
-
-
-    //Enviar Formulario
-
-    console.log('Enviando formulario')
+    mostrarMensaje('Mensaje enviado correctamente');
 }) 
 
 function leerTexto(e) {
@@ -126,6 +121,26 @@ function leerTexto(e) {
     datos[e.target.id] = e.target.value;
   
     // console.log(datos)
+}
+
+
+//  Muestra una alerta de que se envio correctamente
+
+function mostrarMensaje(mensaje){
+    const alerta = document.createElement('P');
+    alerta.textContent = mensaje;
+    alerta.classList.add('correcto');
+
+    formulario.appendChild(alerta);
+    
+
+    // Desaparecer despues de 5 segundos
+
+    setTimeout ( () => {
+        error.remove();
+
+    }, 5000);
+
 }
 
 //Muestra un error en pantalla
@@ -146,6 +161,8 @@ function mostrarError(mensaje){
     }, 5000);
 
 }
+
+
 
 
 
